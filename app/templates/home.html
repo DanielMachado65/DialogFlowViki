@@ -2,6 +2,9 @@
 
 {% block content %}
 <div class="row">
+    {% if texto %}
+        <p> {{texto}}</p>
+    {% endif %}
     <div class="col-md-12">
         {% for text in list %}
             <p>{{ text.item1 }}</p>
