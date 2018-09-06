@@ -1,5 +1,11 @@
 {% extends "layout.html" %}
 
 {% block content %}
-
+<div class="row">
+    <div class="col-md-12">
+        {% for text in list %}
+            <p>{{ text.item1 }}</p>
+        {% endfor %}
+    </div>
+</div>
 {% endblock content %}
