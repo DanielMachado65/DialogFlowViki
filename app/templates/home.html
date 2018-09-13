@@ -5,10 +5,21 @@
     {% if texto %}
         <p> {{texto}}</p>
     {% endif %}
+
+
     <div class="col-md-12">
         {% for text in list %}
             <p>{{ text.item1 }}</p>
         {% endfor %}
     </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <button type="button" class="btn btn-outline-primary"><a href="/home"> Voltar </a></button>
+    <button type="button" class="btn btn-outline-primary"><a href="/processo"> Processo </a></button>
+    <button type="button" class="btn btn-outline-primary"><a href="/export"> Export </a></button>
+    <button type="button" class="btn btn-outline-primary"><a href="/agent"> Agent </a></button>
+  </div>
 </div>
 {% endblock content %}

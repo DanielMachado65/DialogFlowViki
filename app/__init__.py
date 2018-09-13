@@ -1,7 +1,11 @@
+import sqlite3
+
 from flask import Flask
 from google.cloud import storage
 
 from app.config import Config
+
+connection = sqlite3.connect('banco.db')
 
 
 def create_app(config_class=Config):

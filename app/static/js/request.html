@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Teste</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+</head>
+
+<!--
+  HACK: https://console.dialogflow.com/api/interactions/conversations2?startTimeMillis=1525748400000&endTimeMillis=1536634799999&conversationsPerPage=200&InteractionsPerConversation=25&matchedToIntent=true&searchBackward=false
+
+  a questão é que não é possivel fazer a requisição, não podendo ajustar o XSRF Token e o auth token, porque teria que pegar uma sessão, para poder fazer esse redirecionamento, a sessão que consegue abrir
+  pelo Browse não foi suficiente. O que acontece que a implementação dos Client's são em outras linaguens.
+  TODO: verificar como fazer requisição em outras linguagens.
+-->
+
+
+<body>
+  <h1>Teste</h1>
+
+</body>
+
+<script type="text/javascript">
+  var accessToken = "8ba4090b2183436c9149915d85d570b4";
+  var baseUrl = "https://console.dialogflow.com/api/";
+
+  var text = "ola";
+
+  var dataTemp = new Date();
+  var pad = "00"
+  var dataTime = dataTemp.getFullYear();
+  dataTime += pad.substring(dataTemp.getMonth().toString().length) + (dataTemp.getMonth() + 1);
+  dataTime += pad.substring(dataTemp.getDate().toString().length) + dataTemp.getDate();
+
+  /*  https://console.dialogflow.com/api/interactions/conversations?page=1&perPage=50&lang=en */
+  $.ajax({
+    type: 'GET',
+    url: baseUrl + "interactions/conversations?",
+    contentType: "application/json; charset=utf-8",
+    dataType: "json",
+    headers: {
+      "Authorization": "Bearer " + accessToken
+    },
+    success: function(data) {
+      try {
+        console.log(data);
+      } catch (e) {
+        console.log(e);
+      }
+    },
+    error: function() {
+      console.log('Not working yet');
+    }
+  });
+  // $.ajax({
+  //   type: 'POST',
+  //   url: baseUrl + "query?v=" + dataTime,
+  //   contentType: "application/json; charset=utf-8",
+  //   dataType: "json",
+  //   headers: {
+  //     "Authorization": "Bearer " + accessToken
+  //   },
+  //   data: JSON.stringify({
+  //     query: text,
+  //     lang: "pt-br",
+  //     sessionId: 'wd'
+  //   }),
+  //   success: function(data) {
+  //     try {
+  //       console.log(data);
+  //     } catch (e) {
+  //       console.log(e);
+  //     }
+  //   },
+  //   error: function() {
+  //     console.log('Not working yet');
+  //   }
+  // });
+</script>
+
+</html>
