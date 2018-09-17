@@ -1,25 +1,59 @@
 {% extends "layout.html" %}
 
 {% block content %}
+
+{% if list_all %}
+{% for request in list_all %}
 <div class="row">
-    {% if texto %}
-        <p> {{texto}}</p>
-    {% endif %}
-
-
-    <div class="col-md-12">
-        {% for text in list %}
-            <p>{{ text.item1 }}</p>
-        {% endfor %}
+    <div class="col-md-6" id="request">
+        <blockquote class="blockquote text-left">
+            <div class="row">
+                <div class="col-md-6">
+                    <p><span class="text-Request">Session: </span> {{ request.session }}</p>
+                    <p><span class="text-Request">ID: </span>{{ request.id }}</p>
+                    <p><span class="text-Request">Name:</span> {{ request.name }}</p>
+                </div>
+                <div class="col-md-6"><p class="article-content"><span class="text-Request">Requisição:</span>{{
+                    request.text }}</p></div>
+            </div>
+            <footer class="blockquote-footer">Timestamp <cite>{{ request.timestamp.strftime('%Y/%m/%d - %H:%M:%S')
+                }}</cite></footer>
+        </blockquote>
+    </div>
+    <div class="col-md-5" id="response">
+        <blockquote class="blockquote text-right">
+            <div class="row">
+                <div class="col-md-3">
+                    <span><span class="text-Response">Resposta: </span></span>
+                </div>
+                <div class="col-md-9"><p class="article-content text-center">{{
+                    request.response[0].fulfillmentText }}</p></div>
+            </div>
+            <footer class="blockquote-footer">Timestamp <cite>{{ request.timestamp.strftime('%Y/%m/%d - %H:%M:%S')
+                }}</cite></footer>
+        </blockquote>
     </div>
 </div>
-
 <div class="row">
-  <div class="col-md-12">
-    <button type="button" class="btn btn-outline-primary"><a href="/home"> Voltar </a></button>
-    <button type="button" class="btn btn-outline-primary"><a href="/processo"> Processo </a></button>
-    <button type="button" class="btn btn-outline-primary"><a href="/export"> Export </a></button>
-    <button type="button" class="btn btn-outline-primary"><a href="/agent"> Agent </a></button>
-  </div>
+    <div class="col-md-6">
+        <button type="button" class="btn btn-rosa-escuro">Validar</button>
+        <button type="button" class="btn btn-rosa-claro">Cancelar</button>
+    </div>
 </div>
+<hr>
+{% endfor %}
+{% else %}
+<div class="container NaoCadastrado">
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <img src="{{ url_for('static', filename='img/vikiRobot.png' ) }}" alt="Viki Robot">
+        </div>
+    </div>
+    <div class="row">
+        <p>Não foi cadastrado nenhuma requisição ainda. Entre novamente quando houver requisições ou entre com
+            administrador do sistema.</p>
+    </div>
+</div>
+{% endif %}
+
 {% endblock content %}

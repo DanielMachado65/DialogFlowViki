@@ -1,16 +1,17 @@
-import sqlite3
-
 from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
 from google.cloud import storage
 
 from app.config import Config
 
-connection = sqlite3.connect('banco.db')
+db = SQLAlchemy()
 
 
 def create_app(config_class=Config):
     app = Flask(__name__)
     app.config.from_object(Config)
+
+    db.init_app(app)
 
     from app.main.routes import main
     from app.processo.routes import processo
