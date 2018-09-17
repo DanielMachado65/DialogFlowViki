@@ -39,7 +39,7 @@ def home():
 
                 db.session.add(response)
                 db.session.commit()
-
+                
                 return json.dumps({
                     "action": response.action,
                     "response": response.fulfillmentText
