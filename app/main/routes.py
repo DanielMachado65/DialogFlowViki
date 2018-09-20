@@ -4,7 +4,7 @@ import dialogflow_v2 as dialogflow
 from flask import render_template, Blueprint, request, redirect, url_for, flash
 from flask_login import login_user, current_user, logout_user, login_required
 
-from app import db
+from app import db, list_chamada
 from app.main.forms import LoginForm
 from app.models.models_sql_alchemy import Request, Response, Admin
 
@@ -97,9 +97,10 @@ def reset():
     return redirect(url_for('main.gerenciamento'))
 
 
-@main.route("/<int:request_id>/teste")
-def teste(request_id):
-    flash("encontrado" + str(Request.query.get(request_id)), "warning")
+@main.route("/<int:request_id>/validar")
+def validar(request_id):
+    list_chamada.append(Request.query.get(request_id))
+    flash(str(Request.query.get(request_id)) + str(len(list_chamada)), "warning")
     return redirect(url_for('main.home'))
 
 

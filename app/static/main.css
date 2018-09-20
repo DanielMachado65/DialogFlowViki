@@ -35,30 +35,49 @@ h3 {
   margin: 1% 2%;
   background: #e04494;
   color: white;
-  -webkit-transition: background 2s, color 2s;
-  transition: background 2s, color 2s;
+  text-decoration: none;
+  -webkit-transition: all 1s;
+  transition: all 1s;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .btn-rosa-claro {
   margin: 1% 2%;
   background: #e04494a3;
+  text-decoration: none;
   color: white;
-  -webkit-transition: background 2s, color 2s;
-  transition: background 2s, color 2s;
+  -webkit-transition: all 1s;
+  transition: all 1s;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.btn-exit {
+  background: white;
+  color: #e04494;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+  box-shadow: 0px -1px 6px 0px #dedede;
+}
+
+.btn-exit:hover {
+  background: #e04494;
+  color: white;
+  text-decoration: none;
+  box-shadow: -3px 3px 0px 0px #dedede;
 }
 
 .btn-rosa-escuro:hover {
   background-color: white;
   color: black;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  text-decoration: none;
+  box-shadow: -3px 3px 0px 0px #dedede;
 }
 
 .btn-rosa-claro:hover {
   background-color: white;
   color: black;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  text-decoration: none;
+  box-shadow: -3px 3px 0px 0px #dedede;
 }
 
 .text-Request, .text-Response {
