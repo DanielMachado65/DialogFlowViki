@@ -9,11 +9,10 @@
         <blockquote class="blockquote text-left">
             <div class="row">
                 <div class="col-md-6">
-                    <p><span class="text-Request">Session: </span> {{ request.session }}</p>
-                    <p><span class="text-Request">ID: </span>{{ request.id }}</p>
+                    <p><span class="text-Request">ID: </span>{{ request.id_user }}</p>
                     <p><span class="text-Request">Name:</span> {{ request.name }}</p>
                 </div>
-                <div class="col-md-6"><p class="article-content"><span class="text-Request">Requisição:</span>{{
+                <div class="col-md-6"><p class="article-content"><span class="text-Request">Requisição: </span>{{
                     request.text }}</p></div>
             </div>
             <footer class="blockquote-footer">Timestamp <cite>{{ request.timestamp.strftime('%Y/%m/%d - %H:%M:%S')
@@ -26,8 +25,7 @@
                 <div class="col-md-3">
                     <span><span class="text-Response">Resposta: </span></span>
                 </div>
-                <div class="col-md-9"><p class="article-content text-center">{{
-                    request.response[0].fulfillmentText }}</p></div>
+                <div class="col-md-9"><p class="article-content text-center">{{ request.response[0].fulfillmentText }}</p></div>
             </div>
             <footer class="blockquote-footer">Timestamp <cite>{{ request.timestamp.strftime('%Y/%m/%d - %H:%M:%S')
                 }}</cite></footer>
@@ -36,8 +34,12 @@
 </div>
 <div class="row">
     <div class="col-md-6">
-        <button type="button" class="btn btn-rosa-escuro">Validar</button>
-        <button type="button" class="btn btn-rosa-claro">Cancelar</button>
+        <a href="{{ url_for('main.teste', request_id = request.id_request) }}">
+            <button type="button" class="btn btn-rosa-escuro">Validar</button>
+        </a>
+        <a href="{{ url_for('main.delete', request_id = request.id_request) }}">
+            <button type="button" class="btn btn-rosa-claro">Cancelar</button>
+        </a>
     </div>
 </div>
 <hr>
