@@ -10,7 +10,7 @@ login_manager = LoginManager()
 login_manager.login_view = "main.login"
 login_manager.login_message_category = 'warning'
 login_manager.login_message = "Por favor faça o cadastro no sistema primeiramente! : )"
-list_chamada = []
+list_chamada = {}
 
 
 def create_app(config_class=Config):

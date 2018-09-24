@@ -1,3 +1,4 @@
+# coding: utf-8
 import json
 
 import dialogflow_v2 as dialogflow
@@ -44,12 +45,13 @@ def home():
                 return json.dumps({
                     "action": response.action,
                     "response": response.fulfillmentText
-                }, indent=4).encode('utf-8')
+                }, indent=4, ensure_ascii=False).encode("utf8")
             else:
                 return json.dumps(
-                    error_type(error="Não foi encontrado Nome e Texto", session=req.get("session"))).encode('utf-8')
+                    error_type(error="Não foi encontrado Nome e Texto", session=req.get("session")),
+                    ensure_ascii=False).encode('utf8')
         else:
-            return json.dumps(error_type(error="Não foi informado uma Id", session='')).encode('utf-8')
+            return json.dumps(error_type(error="Não foi informado uma Id", session='')).encode('utf8')
     else:
         return redirect(url_for('main.gerenciamento'))
 
@@ -99,9 +101,17 @@ def reset():
 
 @main.route("/<int:request_id>/validar")
 def validar(request_id):
-    list_chamada.append(Request.query.get(request_id))
-    flash(str(Request.query.get(request_id)) + str(len(list_chamada)), "warning")
-    return redirect(url_for('main.home'))
+    request_s = Request.query.get(request_id)
+    if request_s:
+        resposta = request_s.response[0].fulfillmentText
+        print(resposta)
+        list_chamada.update({str(request_id): resposta})
+        print(list_chamada)
+        # flash(json.dumps(list_chamada, ensure_ascii=False).encode("utf8"), "warning")
+        return json.dumps(list_chamada, ensure_ascii=False).encode("utf8")
+        # return redirect(url_for('main.home'))
+    else:
+        return print('not ok')
 
 
 @main.route("/<int:request_id>/delete")
@@ -113,13 +123,26 @@ def delete(request_id):
     return redirect(url_for('main.home'))
 
 
-def error_type(error, session):
-    if session and error:
-        return {"error": error, "session": session}
-    elif error:
-        return {"error": error}
-    else:
-        return {"Error": "Aconteceu algum tipo de error que não foi possivel ser resolvido"}
+@main.route('/trainAgent')
+def train():
+    print('--' * 10)
+    print('Foi adicionado ao treinamento')
+    client = dialogflow.AgentsClient()
+    parent = client.project_path('small-talk-c36ba')
+    try:
+        print(list_chamada)
+        response = client.train_agent(parent=parent, metadata=list_chamada.items())
+        response.add_done_callback(callback)
+    except Exception as error:
+        print(error)
+    return redirect(url_for('main.gerenciamento'))
+
+
+def callback(operation_future):
+    print('--' * 10)
+    print('Result')
+    result = operation_future.result()
+    print(result)
 
 
 def detect_intent_texts(project_id, session_id, texts, language_code):
@@ -133,3 +156,12 @@ def detect_intent_texts(project_id, session_id, texts, language_code):
         "intentDetectionConfidence": response.query_result.intent_detection_confidence,
         "fulfillmentText": response.query_result.fulfillment_text
     }
+
+
+def error_type(error, session):
+    if session and error:
+        return {"error": error, "session": session}
+    elif error:
+        return {"error": error}
+    else:
+        return {"Error": "Aconteceu algum tipo de error que não foi possivel ser resolvido"}

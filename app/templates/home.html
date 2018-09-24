@@ -27,6 +27,12 @@
                 </div>
                 <div class="col-md-9"><p class="article-content text-center">{{ request.response[0].fulfillmentText }}</p></div>
             </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <span><span class="text-Response">Ação: </span></span>
+                </div>
+                <div class="col-md-9"><p class="article-content text-muted text-left">{{ request.response[0].action }}</p></div>
+            </div>
             <footer class="blockquote-footer">Timestamp <cite>{{ request.timestamp.strftime('%Y/%m/%d - %H:%M:%S')
                 }}</cite></footer>
         </blockquote>
