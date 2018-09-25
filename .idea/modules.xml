@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/DialogFlowViki.iml" filepath="$PROJECT_DIR$/.idea/DialogFlowViki.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../UtilsTest/.idea/UtilsTest.iml" filepath="$PROJECT_DIR$/../UtilsTest/.idea/UtilsTest.iml" />
     </modules>
   </component>
 </project>

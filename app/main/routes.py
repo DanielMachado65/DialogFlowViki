@@ -1,5 +1,6 @@
 # coding: utf-8
 import json
+from unicodedata import normalize
 
 import dialogflow_v2 as dialogflow
 from flask import render_template, Blueprint, request, redirect, url_for, flash
@@ -105,19 +106,19 @@ def validar(request_id):
     if request_s:
         resposta = request_s.response[0].fulfillmentText
         print(resposta)
-        list_chamada.update({str(request_id): resposta})
+        list_chamada.update({str(request_id): remover_acentos(resposta)})
         print(list_chamada)
-        # flash(json.dumps(list_chamada, ensure_ascii=False).encode("utf8"), "warning")
-        return json.dumps(list_chamada, ensure_ascii=False).encode("utf8")
-        # return redirect(url_for('main.home'))
+        flash(json.dumps(list_chamada, ensure_ascii=False).encode("utf8"), "warning")
+        # return json.dumps(list_chamada, ensure_ascii=False).encode("utf8")
+        return redirect(url_for('main.home'))
     else:
         return print('not ok')
 
 
 @main.route("/<int:request_id>/delete")
 def delete(request_id):
-    request = Request.query.get_or_404(request_id)
-    db.session.delete(request)
+    request_user = Request.query.get_or_404(request_id)
+    db.session.delete(request_user)
     db.session.commit()
     flash(" O Banco foi atualizado com a nova validação", 'success')
     return redirect(url_for('main.home'))
@@ -165,3 +166,7 @@ def error_type(error, session):
         return {"error": error}
     else:
         return {"Error": "Aconteceu algum tipo de error que não foi possivel ser resolvido"}
+
+
+def remover_acentos(text):
+    return normalize('NFKD', text).encode('ASCII', 'ignore').decode('ASCII')
