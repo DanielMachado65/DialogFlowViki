@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="669f9634-d297-4261-8682-86f5cebaca7f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/DialogFlowViki.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/DialogFlowViki.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/main/utils.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/main/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/main/routes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/site.db" beforeDir="false" afterPath="$PROJECT_DIR$/app/site.db" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -14,15 +12,38 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="DockManager">
+    <window id="1">
+      <content type="file-editors">
+        <state>
+          <leaf>
+            <file pinned="false" current-in-tab="true">
+              <entry file="file://$PROJECT_DIR$/app/main/utils.py">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state relative-caret-position="600">
+                    <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
+                    <folding>
+                      <element signature="e#0#33#0" expanded="true" />
+                    </folding>
+                  </state>
+                </provider>
+              </entry>
+            </file>
+          </leaf>
+        </state>
+      </content>
+    </window>
+  </component>
   <component name="FUSProjectUsageTrigger">
     <session id="1178255402">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
           <entry key="project.closed" value="15" />
           <entry key="project.open.time.0" value="1" />
+          <entry key="project.open.time.11" value="1" />
           <entry key="project.open.time.12" value="3" />
           <entry key="project.open.time.13" value="1" />
-          <entry key="project.open.time.15" value="1" />
+          <entry key="project.open.time.15" value="2" />
           <entry key="project.open.time.16" value="2" />
           <entry key="project.open.time.17" value="2" />
           <entry key="project.open.time.18" value="1" />
@@ -34,7 +55,7 @@
           <entry key="project.open.time.4" value="3" />
           <entry key="project.open.time.40" value="1" />
           <entry key="project.open.time.8" value="1" />
-          <entry key="project.opened" value="26" />
+          <entry key="project.opened" value="28" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -45,7 +66,7 @@
           <entry key="js" value="4" />
           <entry key="json" value="1" />
           <entry key="png" value="23" />
-          <entry key="py" value="93" />
+          <entry key="py" value="98" />
           <entry key="rnc" value="1" />
         </counts>
       </usages-collector>
@@ -57,7 +78,7 @@
           <entry key="JSON" value="1" />
           <entry key="JavaScript" value="4" />
           <entry key="PLAIN_TEXT" value="21" />
-          <entry key="Python" value="93" />
+          <entry key="Python" value="98" />
           <entry key="RNG Compact" value="1" />
         </counts>
       </usages-collector>
@@ -67,7 +88,7 @@
           <entry key="css" value="43" />
           <entry key="dummy" value="3" />
           <entry key="html" value="5101" />
-          <entry key="py" value="19443" />
+          <entry key="py" value="19652" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
@@ -75,7 +96,7 @@
           <entry key="CSS" value="43" />
           <entry key="HTML" value="5101" />
           <entry key="PLAIN_TEXT" value="3" />
-          <entry key="Python" value="20101" />
+          <entry key="Python" value="20310" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages" />
@@ -86,28 +107,10 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/main/routes.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="199">
-              <caret line="107" column="23" lean-forward="true" selection-start-line="107" selection-start-column="23" selection-end-line="107" selection-end-column="23" />
+            <state relative-caret-position="415">
+              <caret line="136" column="30" lean-forward="true" selection-start-line="136" selection-start-column="30" selection-end-line="136" selection-end-column="30" />
               <folding>
                 <element signature="e#16#27#0" expanded="true" />
-                <marker date="1537881837080" expanded="true" signature="2335:2459" ph="..." />
-                <marker date="1537881837080" expanded="true" signature="3298:3370" ph="..." />
-                <marker date="1537881837080" expanded="true" signature="3367:3370" ph="..." />
-                <marker date="1537881837080" expanded="true" signature="3404:5119" ph="..." />
-                <marker date="1537881837080" expanded="true" signature="5117:5119" ph="..." />
-                <marker date="1537881837080" expanded="true" signature="5774:5775" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/__init__.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="12" column="17" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
-              <folding>
-                <element signature="e#0#23#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -161,6 +164,7 @@
         <option value="$PROJECT_DIR$/app/__init__.py" />
         <option value="$PROJECT_DIR$/../UtilsTest/run.py" />
         <option value="$PROJECT_DIR$/app/main/routes.py" />
+        <option value="$PROJECT_DIR$/app/main/utils.py" />
       </list>
     </option>
   </component>
@@ -175,7 +179,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -190,12 +193,19 @@
             </path>
             <path>
               <item name="DialogFlowViki" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DialogFlowViki" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DialogFlowViki" type="b2602c69:ProjectViewProjectNode" />
               <item name="UtilsTest" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -372,14 +382,13 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-1366" y="0" width="1366" height="768" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14750378" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13691376" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" x="-1304" y="23" width="1304" height="745" id="Run" order="2" type="WINDOWED" visible="true" weight="0.30272597" />
+      <window_info anchor="bottom" x="0" y="23" width="1304" height="745" id="Run" order="2" type="WINDOWED" visible="true" weight="0.30272597" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -399,13 +408,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/templates/errors/404.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="5" column="25" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/processo/routes.html" />
     <entry file="file://$PROJECT_DIR$/app/processo/DialogFlowTeste-67f3771f9bed.json" />
     <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/dialogflow/__init__.py">
@@ -535,13 +537,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/processo/routes.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="537">
-          <caret line="33" selection-start-line="33" selection-end-line="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/static/js/script.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="288">
@@ -646,10 +641,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="13" selection-start-column="13" selection-end-column="13" />
-          <folding>
-            <marker date="1537451226391" expanded="true" signature="240:243" ph="..." />
-            <marker date="1537451226391" expanded="true" signature="1677:1800" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -657,16 +648,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="74">
           <caret line="180" column="8" selection-start-line="180" selection-start-column="8" selection-end-line="180" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="12" column="17" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
-          <folding>
-            <element signature="e#0#23#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -684,18 +665,39 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/processo/routes.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-617">
+          <caret line="33" selection-start-line="33" selection-end-line="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="12" column="17" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/main/utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
+          <folding>
+            <element signature="e#0#33#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/main/routes.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
-          <caret line="107" column="23" lean-forward="true" selection-start-line="107" selection-start-column="23" selection-end-line="107" selection-end-column="23" />
+        <state relative-caret-position="415">
+          <caret line="136" column="30" lean-forward="true" selection-start-line="136" selection-start-column="30" selection-end-line="136" selection-end-column="30" />
           <folding>
             <element signature="e#16#27#0" expanded="true" />
-            <marker date="1537881837080" expanded="true" signature="2335:2459" ph="..." />
-            <marker date="1537881837080" expanded="true" signature="3298:3370" ph="..." />
-            <marker date="1537881837080" expanded="true" signature="3367:3370" ph="..." />
-            <marker date="1537881837080" expanded="true" signature="3404:5119" ph="..." />
-            <marker date="1537881837080" expanded="true" signature="5117:5119" ph="..." />
-            <marker date="1537881837080" expanded="true" signature="5774:5775" ph="..." />
           </folding>
         </state>
       </provider>

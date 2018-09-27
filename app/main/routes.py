@@ -1,6 +1,5 @@
 # coding: utf-8
 import json
-from unicodedata import normalize
 
 import dialogflow_v2 as dialogflow
 from flask import render_template, Blueprint, request, redirect, url_for, flash
@@ -8,6 +7,7 @@ from flask_login import login_user, current_user, logout_user, login_required
 
 from app import db, list_chamada
 from app.main.forms import LoginForm
+from app.main.utils import error_type, remover_acentos, callback, detect_intent_texts
 from app.models.models_sql_alchemy import Request, Response, Admin
 
 main = Blueprint('main', __name__)
@@ -137,36 +137,3 @@ def train():
     except Exception as error:
         print(error)
     return redirect(url_for('main.gerenciamento'))
-
-
-def callback(operation_future):
-    print('--' * 10)
-    print('Result')
-    result = operation_future.result()
-    print(result)
-
-
-def detect_intent_texts(project_id, session_id, texts, language_code):
-    session_client = dialogflow.SessionsClient()
-    session = session_client.session_path(project_id, session_id)
-    text_input = dialogflow.types.TextInput(text=texts, language_code=language_code)
-    query_input = dialogflow.types.QueryInput(text=text_input)
-    response = session_client.detect_intent(session=session, query_input=query_input)
-    return {
-        "action": response.query_result.intent.display_name,
-        "intentDetectionConfidence": response.query_result.intent_detection_confidence,
-        "fulfillmentText": response.query_result.fulfillment_text
-    }
-
-
-def error_type(error, session):
-    if session and error:
-        return {"error": error, "session": session}
-    elif error:
-        return {"error": error}
-    else:
-        return {"Error": "Aconteceu algum tipo de error que não foi possivel ser resolvido"}
-
-
-def remover_acentos(text):
-    return normalize('NFKD', text).encode('ASCII', 'ignore').decode('ASCII')
