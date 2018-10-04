@@ -45,7 +45,7 @@ quero tomar um café
 
       Resposta Simples - Vou redirecionar para o café
 
-      ou 
+      ou
 
       Resposta com continuidade - Que tipo de café você gostaria?
     ```
@@ -141,3 +141,10 @@ setuptools
 ```
 
 __DICA__:> Se você usar uma IDE, acredito que ele já consegui baixar sozinho.
+
+
+### @Arquitetura:
+
+para você não ficar perdido e entender o que realmente entender o funcionamento etapa por etapa:
+
+![diagrama](Diagrama_definitvo.png)
