@@ -12,3 +12,8 @@ class LoginForm(FlaskForm):
     def validate_username(self, username):
         if username != "admin@gmail.com":
             raise ValidationError('O usuário não é o correto, por favor entre em contato com o administrador. ')
+
+
+class Intent(FlaskForm):
+    name = StringField('Nome Entidade', validators=[DataRequired()])
+    submit = SubmitField('Criar uma nova Inteção')

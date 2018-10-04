@@ -6,7 +6,7 @@ from flask import render_template, Blueprint, request, redirect, url_for, flash
 from flask_login import login_user, current_user, logout_user, login_required
 
 from app import db, list_chamada
-from app.main.forms import LoginForm
+from app.main.forms import LoginForm, Intent
 from app.main.utils import error_type, remover_acentos, callback, detect_intent_texts
 from app.models.models_sql_alchemy import Request, Response, Admin
 
@@ -114,6 +114,17 @@ def validar(request_id):
         return redirect(url_for('main.home'))
     else:
         return print('not ok')
+
+
+@main.route("/<int:request_id>/create_intent")
+def create_intent_route(request_id):
+    request_s = Request.query.get_or_404(request_id)
+    if not current_user.is_authenticated:
+        return redirect(url_for('main.home'))
+    form_request = Intent()
+    print(request_s)
+    form_request.name.data = request_s.response[0].action
+    return render_template('new.html', title='Criar uma nova Inteção', form=form_request)
 
 
 @main.route("/<int:request_id>/delete")

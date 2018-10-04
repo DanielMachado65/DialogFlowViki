@@ -123,21 +123,21 @@ Esta parte representa a seguinte estrutura de projeto `mvc`
 Para esse projeto funcionar você deve instalar as seguintes dependências:
 
 ```
-Flask
-Flask-Login
-Flask-SQLAlchemy
-Flask-WTF
-SQLAlchemy
-SpeechRecognition
-dialogflow
-docutils
-google-api-core
-google-auth
-google-cloud
-google-cloud-core
-google-cloud-storage
-secrets2env
-setuptools
+  * Flask
+  * Flask-Login
+  * Flask-SQLAlchemy
+  * Flask-WTF
+  * SQLAlchemy
+  * SpeechRecognition
+  * dialogflow
+  * docutils
+  * google-api-core
+  * google-auth
+  * google-cloud
+  * google-cloud-core
+  * google-cloud-storage
+  * secrets2env
+  * setuptools
 ```
 
 __DICA__:> Se você usar uma IDE, acredito que ele já consegui baixar sozinho.
