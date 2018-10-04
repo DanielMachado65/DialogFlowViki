@@ -13,6 +13,7 @@ from app.models.models_sql_alchemy import Request, Response, Admin
 main = Blueprint('main', __name__)
 
 
+# TODO: ESSA PARTE VAI PERGUNTAR E TREINAR A APLICAÇÃO
 @main.route('/', methods=['POST', 'GET'])
 @main.route('/home')
 def home():

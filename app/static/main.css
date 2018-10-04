@@ -41,6 +41,16 @@ h3 {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
+.btn-rosa-mais-escuro {
+  margin: 1% 2%;
+  background: #b7005e;
+  color: white;
+  text-decoration: none;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
 .btn-rosa-claro {
   margin: 1% 2%;
   background: #e04494a3;
@@ -66,14 +76,7 @@ h3 {
   box-shadow: -3px 3px 0px 0px #dedede;
 }
 
-.btn-rosa-escuro:hover {
-  background-color: white;
-  color: black;
-  text-decoration: none;
-  box-shadow: -3px 3px 0px 0px #dedede;
-}
-
-.btn-rosa-claro:hover {
+.btn-rosa-escuro:hover, .btn-rosa-claro:hover, .btn-rosa-mais-escuro:hover {
   background-color: white;
   color: black;
   text-decoration: none;
@@ -97,4 +100,15 @@ h3 {
   margin: 0 auto;
   background: #FFFFFF;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), -4px 0px 0px #e04494a3;
+}
+
+
+@media only screen and (max-width: 600px) {
+  #request {
+    background: #FFFFFF;
+    box-shadow: 0px -2px 0px #e04494, 2px 4px 4px rgba(0, 0, 0, 0.25);
+  }
+  #response {
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px -2px 0px #e04494a3;
+  }
 }

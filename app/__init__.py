@@ -13,6 +13,8 @@ login_manager.login_message = "Por favor faça o cadastro no sistema primeiramen
 list_chamada = {}
 
 
+# HACK: vai fazer a inicialização da aplicação
+# IDEA: caso você precisa cadastrar novas rotas, é aqui onde você vai colocar as rotas
 def create_app(config_class=Config):
     app = Flask(__name__)
     app.config.from_object(Config)
@@ -21,16 +23,16 @@ def create_app(config_class=Config):
     login_manager.init_app(app)
 
     from app.main.routes import main
-    from app.processo.routes import processo
     from app.errors.handlers import errors
 
     app.register_blueprint(main)
     app.register_blueprint(errors)
-    app.register_blueprint(processo)
     implicit()
     return app
 
 
+# HACK: faz as configurações da chave da aplicação.
+# TODO: não mexer, porque ela já está organizada
 def implicit():
     # If you don't specify credentials when constructing the client, the
     # client library will look for credentials in the environment.
@@ -38,4 +40,3 @@ def implicit():
 
     # Make an authenticated API request
     buckets = list(storage_client.list_buckets())
-    print(buckets)

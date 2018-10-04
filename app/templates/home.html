@@ -41,6 +41,9 @@
 <div class="row">
     <div class="col-md-6">
         <a href="{{ url_for('main.validar', request_id = request.id_request) }}">
+            <button type="button" class="btn btn-rosa-mais-escuro ">Criar uma Intenção</button>
+        </a>
+        <a href="{{ url_for('main.validar', request_id = request.id_request) }}">
             <button type="button" class="btn btn-rosa-escuro">Validar</button>
         </a>
         <a href="{{ url_for('main.delete', request_id = request.id_request) }}">
