@@ -63,3 +63,10 @@ def create_intent(project_id, display_name, training_phrases_parts,
     response = intents_client.create_intent(parent, intent)
 
     print('Intent created: {}'.format(response))
+
+
+def list_all_intents(project_id):
+    client = dialogflow.IntentsClient()
+    parent = client.project_agent_path(project_id)
+    for texto in client.list_intents(parent):
+        print(texto)

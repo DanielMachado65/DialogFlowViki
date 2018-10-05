@@ -24,9 +24,11 @@ def create_app(config_class=Config):
 
     from app.main.routes import main
     from app.errors.handlers import errors
+    from app.processos.routes import processo
 
     app.register_blueprint(main)
     app.register_blueprint(errors)
+    app.register_blueprint(processo)
     implicit()
     return app
 
