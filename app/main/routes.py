@@ -7,7 +7,7 @@ from flask_login import login_user, current_user, logout_user, login_required
 
 from app import db, list_chamada
 from app.main.forms import LoginForm, Intent
-from app.main.utils import error_type, remover_acentos, callback, detect_intent_texts
+from app.main.utils import error_type, remover_acentos, callback, detect_intent_texts, create_intent
 from app.models.models_sql_alchemy import Request, Response, Admin
 
 main = Blueprint('main', __name__)
@@ -75,7 +75,6 @@ def login():
         if form.email.data == "admin@gmail.com" and (form.password.data == "root" or form.password.data == "123"):
             # IDEA: mudar para uma coisa mais segura
             admin = Admin.query.filter_by(email=form.email.data).first()
-            print(admin)
             login_user(admin)
             flash("Você foi logado com sucesso", "success")
             return redirect(url_for('main.home'))
@@ -106,9 +105,7 @@ def validar(request_id):
     request_s = Request.query.get(request_id)
     if request_s:
         resposta = request_s.response[0].fulfillmentText
-        print(resposta)
         list_chamada.update({str(request_id): remover_acentos(resposta)})
-        print(list_chamada)
         flash(json.dumps(list_chamada, ensure_ascii=False).encode("utf8"), "warning")
         # return json.dumps(list_chamada, ensure_ascii=False).encode("utf8")
         return redirect(url_for('main.home'))
@@ -116,14 +113,20 @@ def validar(request_id):
         return print('not ok')
 
 
-@main.route("/<int:request_id>/create_intent")
+@main.route("/<int:request_id>/create_intent", methods=['GET', 'POST'])
 def create_intent_route(request_id):
     request_s = Request.query.get_or_404(request_id)
     if not current_user.is_authenticated:
         return redirect(url_for('main.home'))
     form_request = Intent()
-    print(request_s)
-    form_request.name.data = request_s.response[0].action
+    if form_request.validate_on_submit():
+        create_intent(project_id='small-talk-c36ba', display_name=form_request.name.data,
+                      training_phrases_parts=form_request.response.data, message_texts=form_request.response.data)
+        return redirect(url_for('main.home'))
+    else:
+        form_request.name.data = request_s.response[0].action
+        form = form_request.response
+        form.append_entry(request_s.response[0].fulfillmentText)
     return render_template('new.html', title='Criar uma nova Inteção', form=form_request)
 
 

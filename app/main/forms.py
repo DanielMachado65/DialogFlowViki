@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, SubmitField
-from wtforms.validators import DataRequired, Email, ValidationError
+from wtforms import StringField, PasswordField, SubmitField, FieldList
+from wtforms.validators import DataRequired, Email, ValidationError, required
 
 
 class LoginForm(FlaskForm):
@@ -16,4 +16,5 @@ class LoginForm(FlaskForm):
 
 class Intent(FlaskForm):
     name = StringField('Nome Entidade', validators=[DataRequired()])
+    response = FieldList(StringField('Respostas', validators=[required()]))
     submit = SubmitField('Criar uma nova Inteção')

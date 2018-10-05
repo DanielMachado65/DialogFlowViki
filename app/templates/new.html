@@ -2,7 +2,6 @@
 {% block content %}
 <article class="media content-section">
     <div class="media-body">
-
         <form method="post" action="">
             <div class="row">
                 <div class="col-md-12" id="response">
@@ -10,7 +9,7 @@
                     <fieldset class="form-group">
                         <legend class="border-bottom mb-4">{{ legend }}</legend>
                         <div class="form-group">
-                            {{ form.name.label(class="form-control-label") }}
+                            <span class="text-rosa-claro"><strong>{{ form.name.label(class="form-control-label") }}</strong></span>
                             <!-- valor de erro -->
                             {% if form.name.errors %}
                             {{ form.name(class="form-control form-control-lg is-invalid") }}
@@ -20,7 +19,25 @@
                                 {% endfor %}
                             </div>
                             {% else %}
-                            {{ form.name(class="form-control form-control-lg") }}
+                            {{ form.name(class="form-control text-rosa-claro form-control-lg") }}
+                            {% endif %}
+                        </div>
+                         <div class="form-group">
+                             <span class="text-rosa-claro"><strong>{{ form.response.label(class="form-control-label") }}</strong></span>
+                            <!-- valor de erro -->
+                            {% if form.response.errors %}
+                            {{ form.response(class="form-control form-control-lg is-invalid") }}
+                            <div class="invalid-feedback">
+                                <!-- adicionando lista de valores para o formulário em especifico -->
+                                {% for error in form.response.errors %}
+                                <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                            {% else %}
+                             {% for texto in form.response %}
+                                {{ texto(class="form-control text-rosa-claro form-control-lg") }}
+                             {% endfor %}
+
                             {% endif %}
                         </div>
                     </fieldset>

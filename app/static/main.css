@@ -91,12 +91,11 @@ h3 {
   margin-top: 16px;
 }
 
-.form-control{
-  background-color: #e04494a3;
-  color: white;
+.text-rosa-claro{
+  color: #e04494a3;
 }
 
-.form-control:focus {
+.text-rosa-claro:focus {
     color: white;
     background-color: #e880b6;
     border-color: #e04494;
